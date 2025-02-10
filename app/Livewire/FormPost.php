@@ -13,13 +13,12 @@ class FormPost extends Component
     protected $rules = [
         "title"=> "required",
         "description"=> "required",
-        "image_url"=> "required|url",
+        "imageUrl"=> "required",
     ];
     protected $messages = [
         "title.required"=> "Es obligatorio añadir un titulo!",
         "description.required"=> "Necesario añadir una pequeña descripcion!",
-        "image_url.required"=> "Añade una imagen al post",
-        "image_url.url"=> "Se ha de añadir una URL valida!",
+        "imageUrl.required"=> "Añade una imagen al post",
     ];
     public function create() {
         $this->validate();
@@ -33,27 +32,30 @@ class FormPost extends Component
     }
     private function resetInputFields()
     {
-        dd(8);
         $this->title = '';
         $this->description = '';
         $this->imageUrl = '';
     }
     public function update() {
         $this->validate();
-        $post = new Post();
-        $post->update([
-            'title'=> $this->title,
-            'description'=> $this->description,
-            'image_url'=> $this->imageUrl,
+        if (!$this->editPost) {
+            session()->flash('error', 'No se encontró el post a actualizar');
+            return;
+        }
+        $this->editPost->update([
+            'title' => $this->title,
+            'description' => $this->description,
+            'image_url' => $this->imageUrl,
         ]);
         $this->resetInputFields();
         return redirect()->route('posts.index');
     }
     public function mount($id = null){
-        if($id == null){
-            $this->editPost = null;
-        } else {
+        if ($id) {
             $this->editPost = Post::findOrFail($id);
+            $this->title = $this->editPost->title;
+            $this->description = $this->editPost->description;
+            $this->imageUrl = $this->editPost->image_url;
         }
     }
     public function render()
