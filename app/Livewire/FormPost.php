@@ -47,7 +47,6 @@ class FormPost extends Component
             'description' => $this->description,
             'image_url' => $this->imageUrl,
         ]);
-        $this->resetInputFields();
         return redirect()->route('posts.index');
     }
     public function mount($id = null){
