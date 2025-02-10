@@ -1,6 +1,6 @@
 <div>
 <form wire:submit.prevent="{{$editPost ? "create" : "update"}}">
-    <input type="text" wire:model="title" {{$editPost ? "value=`{$editPost->title}`" : ''}} placeholder="Add your title">
+    <input type="text" wire:model="title" {{!is_null($editPost->title) ? "value=`{$editPost->title}`" : ''}} placeholder="Add your title">
     <br>
     <input type="text" wire:model="description" placeholder="Introduce a description">
     <br>
