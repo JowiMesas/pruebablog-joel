@@ -4,6 +4,8 @@ namespace App\Livewire;
 
 use Livewire\Component;
 use App\Models\Post;
+use Illuminate\Support\Facades\Auth;
+
 class FormPost extends Component
 {
     public $title;
@@ -26,6 +28,7 @@ class FormPost extends Component
             "title"=> $this->title,
             "description"=> $this->description,
             "image_url" => $this->imageUrl,
+            "user_id" => Auth::id(),
         ]);
         $this->resetInputFields();
         return redirect()->route("posts.index");
