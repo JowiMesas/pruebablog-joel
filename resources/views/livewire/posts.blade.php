@@ -5,7 +5,7 @@
         </h2>
     </x-slot>
 
-    <div class="py-12 bg-gray-100 min-h-screen">
+    <div class="py-12 bg-blue-200 min-h-screen">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white shadow-lg rounded-lg p-6">
                 <div class="mb-6">
@@ -19,11 +19,11 @@
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
                     @foreach ($posts as $post)
-                        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <div class="bg-gray-200 rounded-lg shadow-md overflow-hidden">
                             <img class="w-full h-48 object-cover" src="{{ $post->image_url }}" alt="Imagen del blog">
                             <div class="p-4">
                                 <h3 class="text-lg font-semibold text-gray-800">{{ $post->title }}</h3>
-                                <p class="text-gray-600 mt-2">{{ $post->description }}</p>
+                                <p class="text-gray-800 mt-2">{{ $post->description }}</p>
                                 <div class="flex justify-between items-center mt-4">
                                     <a href="{{ route('formPost', ['id' => $post->id]) }}"
                                        class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded transition-all">
