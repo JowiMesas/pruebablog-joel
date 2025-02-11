@@ -15,7 +15,7 @@
                     </a>
                 </div>
 
-                <h1 class="text-xl font-bold text-center text-gray-700 mb-6">📝 All  Posts</h1>
+                <h1 class="text-xl font-bold text-center text-gray-700 mb-6">📝 Your Posts</h1>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
                     @foreach ($posts as $post)
@@ -24,14 +24,22 @@
                             <div class="p-4">
                                 <h3 class="text-lg font-semibold text-gray-800">{{ $post->title }}</h3>
                                 <p class="text-gray-800 mt-2">{{ $post->description }}</p>
-                                <div class="flex justify-between items-center mt-4">
+                                <div class="flex justify-between items-center mt-4  text-xs">
                                     <a href="{{ route('formPost', ['id' => $post->id]) }}"
                                        class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded transition-all">
-                                        <i class="fa-solid fa-pen-to-square"></i> Update
+                                        <i class="fa-solid fa-pen-to-square"></i>
+                                        <span>Update</span>
+
+                                    </a>
+                                    <a href="{{route('showPost', ['id' => $post->id])}}" 
+                                        class= " bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded transition-all">
+                                        <i class="fa-solid fa-eye"></i>
+                                         <span> Show More</span>
                                     </a>
                                     <button wire:click="delete({{ $post->id }})"
-                                            class="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded transition-all">
-                                        <i class="fa-solid fa-trash-can"></i> Delete
+                                        class=" bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded transition-all">
+                                        <i class="fa-solid fa-trash-can"></i> 
+                                        <span> Delete</span>
                                     </button>
                                 </div>
                             </div>

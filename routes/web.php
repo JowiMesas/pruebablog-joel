@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostsController;
 use App\Livewire\FormPost;
 use App\Livewire\Posts;
+use App\Livewire\ShowPost;
 
 Route::get('/', function () {
     return view('welcome');
@@ -20,6 +21,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/posts',Posts::class)->name('posts.index');
     Route::get('/post/form/{id?}', FormPost::class)->name('formPost');
+    Route::get('/post/{id}', ShowPost::class)->name('showPost');
 
 });
 require __DIR__.'/auth.php';
