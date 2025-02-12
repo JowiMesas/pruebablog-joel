@@ -23,6 +23,19 @@
         @enderror
     </div>
     <div class="flex items-center flex-col">
+        <label name="categories" class="block text-lg font-semibold m-4 text-gray-700">Categories: </label>
+        <select name="categories" wire:model="selectedCategories" multiple class="w-96 p-2 border rounded">
+            @foreach ($allCategories as $category)
+                <option value="{{$category->id}}">{{$category->name}}</option>
+            @endforeach
+        </select>
+        @error("selectedCategories")
+            <span class="text-red-500 text-sm font-bold">
+                <i class="fa-duotone fa-regular fa-circle-exclamation fa-beat"></i> {{$message}}
+            </span>
+        @enderror
+    </div>
+    <div class="flex items-center flex-col">
         <label name="imgUrl" class="block text-lg font-semibold m-4 text-gray-700">Url Image: </label>
     <input type="url" wire:model="imageUrl" name="imgUrl" placeholder="Image in your post" 
     class="w-96 p-3 border border-gray-500 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">

@@ -5,22 +5,26 @@ namespace App\Livewire;
 use Livewire\Component;
 use App\Models\Post;
 use Illuminate\Support\Facades\Auth;
-
+use App\Models\Category;
 class FormPost extends Component
 {
     public $title;
     public $description;
     public $imageUrl;
     public $editPost = null;
+    public $selectedCategories = [];
+    public $allCategories;
     protected $rules = [
         "title"=> "required",
         "description"=> "required",
         "imageUrl"=> "required",
+        "selectedCategories"=> "required",
     ];
     protected $messages = [
-        "title.required"=> "Es obligatorio añadir un titulo!",
-        "description.required"=> "Necesario añadir una pequeña descripcion!",
-        "imageUrl.required"=> "Añade una imagen al post",
+        "title.required"=> "Adding a title is mandatory!",
+        "description.required"=> "Necessary to add a short description!",
+        "imageUrl.required"=> "Add an image to the post",
+        "selectedCategories.required"=> "You have to select at least one category!",
     ];
     public function create() {
         $this->validate();
@@ -59,7 +63,9 @@ class FormPost extends Component
             $this->title = $this->editPost->title;
             $this->description = $this->editPost->description;
             $this->imageUrl = $this->editPost->image_url;
+            $this->selectedCategories = $this->editPost->categories->pluck('id')->toArray();
         }
+        $this->allCategories = Category::all();
     }
     public function render()
     {

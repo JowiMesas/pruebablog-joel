@@ -7,7 +7,7 @@
     <img class="w-full h-64 object-cover rounded-lg mt-6" src="{{$post->image_url}}" alt="Image Post">
     <p class="mt-6 text-gray-700 text-lg leading-relaxed">{{$post->description}}</p>
     <div class="mt-6">
-        <a href="{{route('posts.index')}}" 
+        <a href="{{route('all.posts')}}" 
         class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded transition-all">
             <i class="fa-solid fa-house"></i></i> BACK</a>
     </div>

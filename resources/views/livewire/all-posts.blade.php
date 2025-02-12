@@ -18,19 +18,13 @@
                                 <p class="text-gray-800 mt-2">{{ $post->description }}</p>
                                 <p class="text-sm text-gray-600 mt-2">
                                      <i class="fa-duotone fa-thin fa-user"></i> {{ $post->user->name }}</p>
-                                <div class="flex justify-between items-center mt-4  text-xs">
+                                <div class="flex justify-center items-center mt-4 text-xs">
                                     <a href="{{route('showPost', ['id' => $post->id])}}" 
                                         class= " bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded transition-all">
                                         <i class="fa-solid fa-eye"></i>
                                          <span> Show More</span>
                                     </a>
-                                    @if ($post->user_id === Auth::user()->id)
-                                    <a href="{{ route('formPost', ['id' => $post->id]) }}"
-                                        class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded transition-all">
-                                         <i class="fa-solid fa-pen-to-square"></i>
-                                         <span>Update</span>
-                                     </a>
-                                    @endif
+                                  
                                 </div>
                             </div>
                         </div>

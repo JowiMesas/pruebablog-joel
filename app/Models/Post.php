@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+
 class Post extends Model
 {
     protected $fillable = [
@@ -21,5 +23,8 @@ class Post extends Model
     }
     public function user() :BelongsTo {
         return $this->belongsTo(User::class);
+    }
+    public function categories() : BelongsToMany {
+        return $this->belongsToMany(Category::class);
     }
 }

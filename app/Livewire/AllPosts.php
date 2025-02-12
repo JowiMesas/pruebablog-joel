@@ -3,8 +3,8 @@
 namespace App\Livewire;
 
 use App\Models\Post;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
-
 class AllPosts extends Component
 {
     public $posts;
