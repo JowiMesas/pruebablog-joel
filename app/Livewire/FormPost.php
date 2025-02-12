@@ -49,6 +49,7 @@ class FormPost extends Component
             'title' => $this->title,
             'description' => $this->description,
             'image_url' => $this->imageUrl,
+            'user_id' => Auth::id(),
         ]);
         return redirect()->route('posts.index');
     }
