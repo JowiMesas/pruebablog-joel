@@ -2,6 +2,7 @@
     <h1 class="text-4xl font-bold text-gray-800">{{$post->title}}</h1>
     <p class="text-gray-500 mt-2 text-sm"> Publicated at: {{$post->getCreatedDateFormat()}}</p>
     <p class="text-gray-500 mt-2 text-sm"> Last updated: {{$post->getUpdatedDateFormat()}} </p>
+    <p class="text-gray-600 mt-2 text-sm">Created by: {{$post->user->name}}</p>
 
     <img class="w-full h-64 object-cover rounded-lg mt-6" src="{{$post->image_url}}" alt="Image Post">
     <p class="mt-6 text-gray-700 text-lg leading-relaxed">{{$post->description}}</p>

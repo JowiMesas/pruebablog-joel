@@ -1,19 +1,21 @@
 <div>
     <x-slot name="header">
         <h2 class="text-3xl font-bold text-gray-800">
-            <i class="fa-sharp fa-solid fa-paste"></i> Posts
+            <i class="fa-sharp fa-solid fa-paste"></i> Your Posts
         </h2>
     </x-slot>
 
     <div class="py-12 bg-blue-200 min-h-screen">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white shadow-lg rounded-lg p-6">
+                @auth
                 <div class="mb-6">
                     <a class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition-all"
                        href="{{ route('formPost') }}">
                         <i class="fa-solid fa-file-plus"></i> New Post
                     </a>
                 </div>
+                @endauth
 
                 <h1 class="text-xl font-bold text-center text-gray-700 mb-6">📝 Your Posts</h1>
 

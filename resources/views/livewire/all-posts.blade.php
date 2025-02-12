@@ -1,7 +1,7 @@
 <div>
     <x-slot name="header">
         <h2 class="text-3xl font-bold text-gray-800">
-            <i class="fa-sharp fa-solid fa-paste"></i> Posts
+             🌍 All Posts
         </h2>
     </x-slot>
 
@@ -30,12 +30,6 @@
                                          <i class="fa-solid fa-pen-to-square"></i>
                                          <span>Update</span>
                                      </a>
- 
-                                     <button wire:click="delete({{ $post->id }})"
-                                         class=" bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded transition-all">
-                                         <i class="fa-solid fa-trash-can"></i> 
-                                         <span> Delete</span>
-                                     </button>
                                     @endif
                                 </div>
                             </div>

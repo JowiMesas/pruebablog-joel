@@ -11,8 +11,7 @@ use App\Livewire\ShowPost;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/post/{id}', ShowPost::class)->name('showPost');
-Route::get('/all-posts',AllPosts::class)->name('all.posts');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -25,4 +24,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/post/form/{id?}', FormPost::class)->name('formPost');
 
 });
+Route::get('/post/{id}', ShowPost::class)->name('showPost');
+Route::get('/all-posts',AllPosts::class)->name('all.posts');
 require __DIR__.'/auth.php';
