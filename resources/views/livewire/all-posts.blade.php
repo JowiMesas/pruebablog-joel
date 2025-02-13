@@ -16,6 +16,16 @@
                             <div class="p-4">
                                 <h3 class="text-lg font-semibold text-gray-800">{{ $post->title }}</h3>
                                 <p class="text-gray-800 mt-2">{{ $post->description }}</p>
+                                <div class="mt-2">
+                                    <span class="text-gray-800 font-semibold">Categories:</span>
+                                    <div class="flex flex-wrap mt-1">
+                                        @foreach ($post->categories as $category)
+                                            <span class="mr-2 mb-2 px-3 py-1 bg-blue-200 text-blue-800 text-xs font-medium rounded-full">
+                                                {{ $category->name }}
+                                            </span>
+                                        @endforeach
+                                    </div>
+                                </div> 
                                 <p class="text-sm text-gray-600 mt-2">
                                      <i class="fa-duotone fa-thin fa-user"></i> {{ $post->user->name }}</p>
                                 <div class="flex justify-center items-center mt-4 text-xs">

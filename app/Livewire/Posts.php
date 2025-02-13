@@ -13,8 +13,9 @@ class Posts extends Component
     public function delete($id) {
         $post = Post::find($id);
         $post->delete();
-        return redirect(route("posts.index"));
+        return redirect(route(name: "posts.index"));
     }
+    
     public function render()
     {
         return view('livewire.posts');

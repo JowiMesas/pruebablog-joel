@@ -28,12 +28,13 @@ class FormPost extends Component
     ];
     public function create() {
         $this->validate();
-        Post::create([
+         $post = Post::create([
             "title"=> $this->title,
             "description"=> $this->description,
             "image_url" => $this->imageUrl,
             "user_id" => Auth::id(),
         ]);
+        $post->categories()->attach($this->selectedCategories);
         $this->resetInputFields();
         return redirect()->route("posts.index");
     }
@@ -49,12 +50,14 @@ class FormPost extends Component
             session()->flash('error', 'No se encontró el post a actualizar');
             return;
         }
-        $this->editPost->update([
+        $post = Post::findOrFail($this->editPost->id);
+        $post->update([
             'title' => $this->title,
             'description' => $this->description,
             'image_url' => $this->imageUrl,
             'user_id' => Auth::id(),
         ]);
+        $post->categories()->sync($this->selectedCategories);
         return redirect()->route('posts.index');
     }
     public function mount($id = null){

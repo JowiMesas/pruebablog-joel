@@ -29,6 +29,10 @@
                 <option value="{{$category->id}}">{{$category->name}}</option>
             @endforeach
         </select>
+        <p class="text-sm text-gray-500  mt-1">
+            <i class="fa-duotone fa-regular fa-circle-info"></i>
+             Press Ctrl (or Command on Mac) to select multiple options or deselect one.
+        </p>
         @error("selectedCategories")
             <span class="text-red-500 text-sm font-bold">
                 <i class="fa-duotone fa-regular fa-circle-exclamation fa-beat"></i> {{$message}}
