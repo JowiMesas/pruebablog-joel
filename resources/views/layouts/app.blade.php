@@ -12,6 +12,11 @@
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.7.1/css/all.css">
         <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.7.1/css/sharp-thin.css">
+        <link rel="stylesheet"href="https://site-assets.fontawesome.com/releases/v6.7.2/css/sharp-duotone-solid.css">
+
+        <link rel="stylesheet"href="https://site-assets.fontawesome.com/releases/v6.7.2/css/sharp-duotone-regular.css">
+
+        <link rel="stylesheet"href="https://site-assets.fontawesome.com/releases/v6.7.2/css/duotone-thin.css">
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>

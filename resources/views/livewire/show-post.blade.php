@@ -5,7 +5,6 @@
     <p class="text-gray-600 mt-2 text-sm">Created by: <strong>{{$post->user->name}}</strong></p>
 
     <img class="w-full h-64 object-cover rounded-lg mt-3 mb-6" src="{{$post->image_url}}" alt="Image Post">
-    <p class="mt-6 mb-3 text-gray-700 text-lg leading-relaxed">{{$post->description}}</p>
     <div class="mb-6">
         <span class="font-semibold text-gray-700">Categories:</span>
         <div class="flex flex-wrap mt-1">
@@ -16,7 +15,8 @@
             @endforeach
         </div>
     </div>
-    <div class="mt-6 text-center">
+    <p class="mt-2 mb-6 text-gray-700 text-lg leading-relaxed">{{$post->description}}</p>
+    <div class="mt-8 text-center">
         <a href="{{route('all.posts')}}" 
         class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded transition-all">
             <i class="fa-solid fa-house"></i></i> BACK</a>
