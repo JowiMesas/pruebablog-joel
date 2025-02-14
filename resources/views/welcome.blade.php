@@ -19,7 +19,7 @@
             </style>
         @endif
     </head>
-    <body class="font-sans antialiased dark:bg-black dark:text-white/50 relative pt-24 pb-20">
+    <body class="font-sans antialiased dark:text-black dark:bg-white/50 relative pt-24 pb-20">
         <!-- Header Fijo -->
         <header class="fixed top-0 left-0 w-full bg-white border-b-4 border-[#FF2D20] shadow z-50">
             <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
