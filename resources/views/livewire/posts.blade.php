@@ -67,6 +67,10 @@
                     @endforeach
                 </div>
 
+                <div class="flex justify-center mt-6">
+                    <p> {{ $posts->links() }} </p>
+                </div>
+
                 @if($posts->isEmpty())
                     <p class="text-center text-gray-500 mt-6">😢 No posts yet, create a new one 😃!</p>
                 @endif

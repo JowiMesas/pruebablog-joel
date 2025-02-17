@@ -11,7 +11,7 @@
 
                 <h1 class="text-2xl font-bold text-center text-gray-700 mt-6">🌍 All Users' Posts</h1>
 
-                <div class=" mt-4 mb-6 flex items-center justify-center">
+                <div class="mt-4 mb-6 flex items-center justify-center">
                     <input type="text" wire:model="filterCategory" placeholder="Filter by category" class="px-4 py-2 border rounded-xl">
                     <button wire:click="filterPosts" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-5 rounded-xl transition-all ml-2">
                         <i class="fa-duotone fa-regular fa-magnifying-glass"></i>
@@ -50,7 +50,7 @@
                                 </p>
 
                                 <div class="mt-auto flex justify-center">
-                                    <a href="{{ route('showPost', ['id' => $post->id]) }}" 
+                                    <a href="{{ route('showPost', parameters: ['id' => $post->id]) }}" 
                                         class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded transition-all">
                                         <i class="fa-solid fa-eye"></i>
                                         <span> Show More</span>
@@ -64,6 +64,11 @@
                 @if($posts->isEmpty())
                     <p class="text-center text-gray-500 mt-6">😢 No posts yet, create a new one 😃!</p>
                 @endif
+
+
+                <div class="flex justify-center mt-6">
+                    {{ $posts->links() }}
+                </div>
 
             </div>
         </div>
