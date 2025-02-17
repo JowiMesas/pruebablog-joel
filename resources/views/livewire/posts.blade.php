@@ -77,6 +77,6 @@
             </div>
         </div>
     </div>
-
+    
     @include('livewire.confirm-delete-modal')
 </div>
