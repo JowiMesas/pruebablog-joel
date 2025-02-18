@@ -8,6 +8,7 @@ use Livewire\WithPagination;
 class Posts extends Component
 {
     use WithPagination;
+    
     public function mount() {
       
     }

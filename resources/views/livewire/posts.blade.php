@@ -11,10 +11,10 @@
 
                 @auth
                 <div class="mb-6">
-                    <button x-on:click="$dispatch('open-modal', { postId: null })"
-                    class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition-all">
-                     <i class="fa-solid fa-file-plus"></i> New Post
-                 </button>
+                    <a class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition-all"
+                       href="{{ route('formPost') }}">
+                        <i class="fa-solid fa-file-plus"></i> New Post
+                    </a>
                 </div>
                 @endauth
 
@@ -45,12 +45,11 @@
                                     </div> 
 
                                     <div class="flex justify-between items-center mt-4 text-xs">
-                                        <button x-on:click="$dispatch('open-modal', { postId: '{{ $post->id }}' })"
-
+                                        <a href="{{ route('formPost', ['id' => $post->id]) }}"
                                             class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded transition-all">
                                             <i class="fa-solid fa-pen-to-square"></i>
                                             <span>Update</span>
-                                        </button>
+                                        </a>
                                         <a href="{{ route('showPost', ['id' => $post->id]) }}" 
                                             class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded transition-all">
                                             <i class="fa-solid fa-eye"></i>
@@ -80,5 +79,4 @@
     </div>
     
     @include('livewire.confirm-delete-modal')
-    <livewire:form-post />
 </div>
