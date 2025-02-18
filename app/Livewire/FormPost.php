@@ -13,7 +13,7 @@ class FormPost extends Component
     public $imageUrl;
     public $editPost = null;
     public $selectedCategories = [];
-    public $allCategories = "";
+    public $allCategories;
     protected $rules = [
         "title"=> "required",
         "description"=> "required",
