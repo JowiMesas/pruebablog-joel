@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 class Post extends Model
 {
@@ -26,5 +27,8 @@ class Post extends Model
     }
     public function categories() : BelongsToMany {
         return $this->belongsToMany(Category::class);
+    }
+    public function comments() : MorphMany {
+        return $this->morphMany(Comment::class,'commentable');
     }
 }
