@@ -15,14 +15,16 @@ class FormPost extends Component
     public $selectedCategories = [];
     public $allCategories;
     protected $rules = [
-        "title"=> "required",
-        "description"=> "required",
+        "title"=> "required|min:5",
+        "description"=> "required|min:10",
         "imageUrl"=> "required",
         "selectedCategories"=> "required",
     ];
     protected $messages = [
         "title.required"=> "Adding a title is mandatory!",
+        "title.min" => "The title must be at least 5 characters long.",
         "description.required"=> "Necessary to add a short description!",
+        "description.min" => "The description must be at least 10 characters long.",
         "imageUrl.required"=> "Add an image to the post",
         "selectedCategories.required"=> "You have to select at least one category!",
     ];
