@@ -54,7 +54,7 @@
                     
                     <!-- Respuestas al comentario -->
                     @if ($comment->replies && $comment->replies->isNotEmpty())
-                        <div class="mt-2 ml-4 border-l pl-3">
+                        <div class="mt-2 ml-4 border-l pl-3 ">
                             <h2 class="text-base font-bold">
                                 <i class="fa-solid fa-reply-all"></i> Replies
                             </h2>
