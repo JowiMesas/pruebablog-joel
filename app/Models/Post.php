@@ -31,4 +31,13 @@ class Post extends Model
     public function comments() : MorphMany {
         return $this->morphMany(Comment::class,'commentable');
     }
+    protected static function booted()
+{
+    static::deleting(function ($post) {
+        // Itera sobre cada comentario y lo elimina
+        $post->comments()->each(function ($comment) {
+            $comment->delete();
+        });
+    });
+}
 }

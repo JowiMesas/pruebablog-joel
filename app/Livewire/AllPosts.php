@@ -13,7 +13,7 @@ class AllPosts extends Component
     use WithPagination;
 
     public $filterCategory;
-    
+    public $filterTitle;
     public $commentContent = "";
     public $replyContent = "";
     public $postIdFormComment = null;
@@ -22,7 +22,9 @@ class AllPosts extends Component
 
     protected $messages = [
         "commentContent.required"=> "The content of the comment is required!!",
+        "commentContent.max"=> "Maximum 50 characters!!",
         "replyContent.required"=> "The reply content is required!!",
+        "replyContent.max"=> "Maximum 50 characters",
      ];
     public function render()
     {
@@ -31,6 +33,9 @@ class AllPosts extends Component
                 $query->whereHas('categories', function($query) {
                     $query->where('name','like','%' .  $this->filterCategory . '%');
                 });
+            })
+            ->when($this->filterTitle, function($query) {
+                $query->where('title', 'like', '%' . $this->filterTitle . '%');
             })
             ->paginate(6); 
 
@@ -42,7 +47,7 @@ class AllPosts extends Component
     }
     public function createComment($postId) {
         $this->validate([
-            'commentContent' => 'required'
+            'commentContent' => 'required|max:50'
         ]);
         $post = Post::findOrFail($postId);
         $post->comments()->create([
@@ -55,7 +60,7 @@ class AllPosts extends Component
     }
     public function createReply($commentId) {
         $this->validate([
-            'replyContent' => 'required'
+            'replyContent' => 'required|max:50'
         ]);
         $comment = Comment::findOrFail($commentId);
         $comment->replies()->create([
@@ -66,5 +71,16 @@ class AllPosts extends Component
         $this->commentIdFormReplies = null;
         $this->resetPage();
     }
+    public function cancelComment()
+{
+    $this->postIdFormComment = null;
+    $this->commentContent = "";
+}
+
+public function cancelReply()
+{
+    $this->commentIdFormReplies = null;
+    $this->replyContent = "";
+}
 
 }

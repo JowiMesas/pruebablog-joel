@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
@@ -13,6 +14,11 @@ class Comment extends Model
         "content",
         "user_id",
      ];
+     
+    public function getCreatedDateFormat() { 
+        return Carbon::parse($this->created_at)->locale('en')->isoFormat('D MMMM of Y HH:mm');
+
+    }
     public function commentable() : MorphTo {
         return $this->morphTo();
     }
@@ -22,4 +28,11 @@ class Comment extends Model
     public function user() : BelongsTo {
         return $this->belongsTo(User::class);
     }
+    protected static function booted()
+{
+    static::deleting(function ($comment) {
+        // Elimina las respuestas asociadas a este comentario
+        $comment->replies()->delete();
+    });
+}
 }
