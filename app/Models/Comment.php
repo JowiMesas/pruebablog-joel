@@ -16,7 +16,7 @@ class Comment extends Model
      ];
      
     public function getCreatedDateFormat() { 
-        return Carbon::parse($this->created_at)->locale('en')->isoFormat('D MMMM of Y HH:mm');
+        return Carbon::parse($this->created_at)->locale('en')->toDayDateTimeString();
 
     }
     public function commentable() : MorphTo {
